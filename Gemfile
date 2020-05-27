@@ -1,15 +1,13 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '2.7.0'
+ruby '~> 2.7.0'
 
-gem 'mongoid', '~> 7.0.5'
 #gem 'rails_admin', '~> 2.0'
 gem 'activerecord'
 gem 'devise'
 gem 'devise_token_auth'
-gem 'kaminari-mongoid'
-gem 'mongoid-locker'
+gem 'sqlite3'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 # Use Puma as the app server
