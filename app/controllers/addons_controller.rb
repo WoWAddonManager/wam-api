@@ -3,9 +3,16 @@
 # Handles /api/addons api route
 class AddonsController < ApplicationController
   before_action :set_addon, except: %i[index create]
+  before_action :addon_params, only: %i[index]
+
   # GET /addons
   def index
-    @addons = Addon.all
+    puts "Name: #{params[:name].class}"
+    if params[:name] == nil 
+      @addons = Addon.all
+    else
+      @addons = Addon.find_by(name: params[:name].to_s);
+    end
 
     render json: @addons
   end
@@ -50,7 +57,6 @@ class AddonsController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def addon_params
-    params.permit(:name, :version,
-                  :wow_version, :description, :torrent_info)
+    params.permit(:id, :name, :token, :addon)
   end
 end
